@@ -2,7 +2,7 @@
 // http://chrisltd.com
 // Created October 2013
 // Version .01
-// Yo Passwall creates a password login modal on a page while hiding the background content. This is not secure and should only be used to lightly protect content.
+// Yo Passwall hides your page content behind a mostly opaque background image until you enter the proper password into a browser prompt dialogue window
 
 (function( $ ){
 
@@ -32,7 +32,7 @@
       if( $.base64.encode( password_prompt ) == settings.password ){ 
         $('#yo_pagecover').fadeOut('fast');
       } else {
-        $('#yo_pagecover').append('<button style="margin-top: 5em;">Enter Password</button>');
+        $('#yo_pagecover').append('<button style="margin-top: 5em;">Try Again</button>');
       }
     }
 
