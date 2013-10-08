@@ -36,7 +36,7 @@
       }
     }
 
-    window.setTimeout(requestPassword, 100);
+    window.setTimeout(requestPassword, 200);
     
     $('body').on('click', '#yo_pagecover button', function() {
       window.location.reload();
