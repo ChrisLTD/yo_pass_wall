@@ -10,9 +10,11 @@
 
     // Create some defaults, extending them with any options that were provided
     var settings = $.extend( {
-      'password'     : 'cGFzc3dvcmQ=',              // Password base64 encoded (default: password)
-      'pageCover'    : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQImWOoqqr6DwXP/v///58BmfP///9nDDAOTCWGCgDa6TwNdDnWYwAAAABJRU5ErkJggg==', // base64 encoded image to obscure the page content
-      'initCallback' : function() {}            		// Called if plugin initialized on an object
+      'password'     	: 'cGFzc3dvcmQ=',              					// Password base64 encoded (default: password)
+      'promptMessage'	: 'Enter the password to continue:', 		// Text shown on the password prompt
+      'failMessage'		: 'Password incorrect. Try again:', 		// Message shown when the password is incorrect
+      'pageCover'    	: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQImWOoqqr6DwXP/v///58BmfP///9nDDAOTCWGCgDa6TwNdDnWYwAAAABJRU5ErkJggg==', // base64 encoded image to obscure the page content
+      'initCallback' 	: function() {}            							// Called if plugin initialized on an object
     }, options);
 
     var password_prompt = null;
@@ -24,9 +26,9 @@
     function requestPassword(){
       while( $.base64.encode( password_prompt ) != settings.password && password_prompt != '' ){
         if( password_prompt == null){ // first time the prompt comes up
-          password_prompt = prompt("Enter the password to continue:");
+          password_prompt = prompt( settings.promptMessage );
         } else {
-          password_prompt = prompt("Password incorrect. Try again:");
+          password_prompt = prompt( settings.failMessage );
         }
       }
       if( $.base64.encode( password_prompt ) == settings.password ){ 
