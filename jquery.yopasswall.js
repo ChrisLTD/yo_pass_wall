@@ -24,7 +24,7 @@
     function requestPassword(){
       while( $.base64.encode( password_prompt ) != settings.password && password_prompt != '' ){
         if( password_prompt == null){ // first time the prompt comes up
-          password_prompt = prompt("Enter password to continue:");
+          password_prompt = prompt("Enter the password to continue:");
         } else {
           password_prompt = prompt("Password incorrect. Try again:");
         }
